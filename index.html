@@ -3,12 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello, World!</title>
+    <title>RSVP Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        form {
+            max-width: 400px;
+            margin: auto;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
 
-    <h1>Hello, World!</h1>
-    <p>This is a simple HTML webpage.</p>
+    <h1>RSVP Form</h1>
+
+    <form id="rsvpForm">
+        <label for="name">Your Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="response">Will you be attending?</label>
+        <select id="response" name="response" required>
+            <option value="attending">Yes, I'll be there!</option>
+            <option value="notAttending">Sorry, I can't make it.</option>
+        </select>
+
+        <button type="submit">Submit RSVP</button>
+    </form>
+
+    <script>
+        document.getElementById('rsvpForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            var name = document.getElementById('name').value;
+            var response = document.getElementById('response').value;
+
+            alert('RSVP submitted!\nName: ' + name + '\nResponse: ' + response);
+            
+            // You can perform additional actions here, such as sending the data to a server for processing.
+        });
+    </script>
 
 </body>
 </html>
